@@ -1,0 +1,12 @@
+interface Props {
+  children?: JSX.Element;
+}
+
+export function {{ pascalCase name }}({ children }: Props): JSX.Element {
+  return (
+    <div>
+      <h1>{{ name }}</h1>
+      {children}
+    </div>
+  );
+};
