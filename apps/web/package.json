@@ -1,5 +1,5 @@
 {
-  "name": "ui-demo",
+  "name": "web",
   "version": "1.0.0",
   "private": true,
   "description": "ui-demo",
@@ -16,7 +16,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@moonlight8978/ui": "workspace:*",
     "autoprefixer": "^10.4.15",
+    "classnames": "^2.3.2",
     "gatsby": "^5.12.1",
     "gatsby-plugin-manifest": "^5.12.0",
     "gatsby-plugin-postcss": "^6.12.0",
@@ -24,12 +26,16 @@
     "postcss": "^8.4.28",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.3"
+    "react-hook-form": "^7.45.4",
+    "tailwindcss": "^3.3.3",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
     "typescript": "^5.1.6"
   }
 }

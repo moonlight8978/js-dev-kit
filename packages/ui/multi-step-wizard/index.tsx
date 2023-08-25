@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { WizardStep } from "./wizard-step";
 import type { StepDescriptor } from "./wizard-step";
 
+export * from "./wizard-step";
+
 export function MultiStepWizard({
   steps,
   onSubmit = () => {},
