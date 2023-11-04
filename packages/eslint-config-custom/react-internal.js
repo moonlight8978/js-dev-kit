@@ -39,5 +39,6 @@ module.exports = {
     "react/jsx-sort-props": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "react/function-component-definition": "off",
   },
 };

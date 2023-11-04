@@ -18,10 +18,10 @@
     "tsconfig": "workspace:*",
     "typescript": "^4.5.2"
   },
-  "dependencies": {
-    "@hookform/resolvers": "^3.3.0",
-    "classnames": "^2.3.2",
+  "peerDependencies": {
+    "yup": "^1.2.0",
     "react-hook-form": "^7.45.4",
-    "yup": "^1.2.0"
+    "classnames": "^2.3.2",
+    "@hookform/resolvers": "^3.3.0"
   }
 }

@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@moonlight8978/ui": "workspace:*",
+    "classnames": "^2.3.2",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@moonlight8978/ui": "workspace:*"
+    "react-hook-form": "^7.45.4",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.19",

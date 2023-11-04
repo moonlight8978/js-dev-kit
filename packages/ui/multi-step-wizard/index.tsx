@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { WizardStep } from "./wizard-step";
 import type { StepDescriptor } from "./wizard-step";
 
+export * from "./wizard-step";
+
 export function MultiStepWizard({
   steps,
   onSubmit = () => {},
@@ -26,7 +28,7 @@ export function MultiStepWizard({
     return (
       <WizardStep
         {...step}
-        key={index.toString()}
+        key={step.key}
         hidden={index !== currentStep}
         onNextStep={(values) => {
           formIndexToValues.current.set(index, values);
