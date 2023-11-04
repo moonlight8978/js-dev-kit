@@ -1,4 +1,4 @@
-import { Initializable } from "@moonkit/types";
+import { Initializable } from "@munkit/types";
 import { ConfigMapCollection } from "./collection";
 import { ConfigMapRecordContract } from "./record";
 import { getProviderMeta } from "./symbols";

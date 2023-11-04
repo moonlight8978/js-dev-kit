@@ -9,7 +9,7 @@ import {
   schemaMetadataKey,
 } from "./symbols";
 import { ConfigMapRecordContract } from "./record";
-import { Initializable } from "@moonkit/types";
+import { Initializable } from "@munkit/types";
 
 class Attributes<T extends ConfigMapRecordContract> {
   private propertyNameToCollectionAttributes: Map<

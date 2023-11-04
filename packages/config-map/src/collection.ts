@@ -1,4 +1,4 @@
-import { Initializable } from "@moonkit/types";
+import { Initializable } from "@munkit/types";
 import { ConfigMapRecordContract } from "./record";
 import { keyMetadataKey, getProviderMeta, getAttributes } from "./symbols";
 import first from "lodash.first";

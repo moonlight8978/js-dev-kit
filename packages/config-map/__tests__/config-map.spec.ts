@@ -8,12 +8,13 @@ import {
   schema,
   CsvContract,
   ConfigMapRecord,
+  ConfigMapRegistry,
 } from "../src";
 import { number, string } from "yup";
 import * as path from "path";
 import { parse } from "csv-parse/sync";
 import * as fs from "fs";
-import { Initializable } from "@moonkit/types";
+import { Initializable } from "@munkit/types";
 
 class ConfigMapCsv implements CsvContract {
   public async getRows(file: string): Promise<Record<string, string>[]> {
@@ -108,6 +109,10 @@ describe("config map", () => {
     const csv = new ConfigMapCsv();
     const configMapReader = new CsvConfigMapReader(csv);
     const students = await configMapReader.read(Student);
+    const registry = new ConfigMapRegistry();
+    registry.register(students);
+
+    expect(registry.lookup(Student).size).toEqual(3);
     expect(students.size).toEqual(3);
 
     const alice = students.get(1);

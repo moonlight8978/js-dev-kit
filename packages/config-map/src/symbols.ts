@@ -1,6 +1,6 @@
 import { Schema } from "yup";
 import { ConfigMapRecordContract } from "./record";
-import { Initializable } from "@moonkit/types";
+import { Initializable } from "@munkit/types";
 
 export const providerMetadataKey = Symbol("config-map:csv-provider");
 
