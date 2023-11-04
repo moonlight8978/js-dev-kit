@@ -1,0 +1,10 @@
+Id,Name,Age,Course,Grade,ParentName,ParentRelationship,ParentAchievement
+1,Alice,10,Math,A,AliceMom,Mom,IMO 2022
+,,,Physics,B,,,IOI 2023
+,,,Computer Science,C,AliceDad,Dad,
+2,Bob,11,Physics,A,BobDad,Dad,
+,,,Math,B,BobMom,Mom,
+,,,Computer Science,C,,,
+3,Carol,12,Computer Science,A,CarolDad,Dad,
+,,,Math,B,CarolMom,Mom,
+,,,Physics,C,,,
