@@ -1,0 +1,11 @@
+**/.DS_Store
+
+.turbo/
+*.config.js
+*.config.ts
+
+node_modules/
+
+__tests__
+
+*.md

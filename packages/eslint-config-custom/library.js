@@ -31,4 +31,22 @@ module.exports = {
     },
   },
   ignorePatterns: ["node_modules/", "dist/"],
+  rules: [
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/__tests__/*",
+          "**/__mocks__/*",
+          "**/*.spec.*",
+          "**/*.test.*",
+          "**/*.setup.*",
+          "**/*.config.*",
+          "storybook/**/*",
+          "**/testUtils/*",
+          "**/types/**"
+        ]
+      }
+    ],
+  ]
 };

@@ -8,6 +8,7 @@ export interface StepDescriptor<T extends AnyObject> {
   validationSchema: ObjectSchema<T>;
   initialValues: T;
   render: (form: UseFormReturn<T>) => JSX.Element;
+  key: string;
 }
 
 export function WizardStep<T extends AnyObject>({

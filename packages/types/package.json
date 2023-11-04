@@ -1,0 +1,9 @@
+{
+  "name": "@munkit/types",
+  "version": "0.2.0",
+  "homepage": "https://github.com/moonlight8978/js-dev-kit",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
