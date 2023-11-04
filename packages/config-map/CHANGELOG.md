@@ -1,5 +1,11 @@
 # @munkit/config-map
 
+## 0.5.0
+
+### Minor Changes
+
+- Add JSON config map
+
 ## 0.4.0
 
 ### Minor Changes

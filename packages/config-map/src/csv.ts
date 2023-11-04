@@ -122,8 +122,8 @@ class Attributes<T extends ConfigMapRecordContract> {
   }
 }
 
-export class CsvConfigMapReader {
-  constructor(private csvReader: CsvContract) {}
+export class CsvConfigMap {
+  constructor(private csv: CsvContract) {}
 
   public async read<T extends ConfigMapRecordContract>(
     Type: Initializable<T>
@@ -140,7 +140,7 @@ export class CsvConfigMapReader {
       );
     }
 
-    const rows = await this.csvReader.getRows(providerMeta.file);
+    const rows = await this.csv.getRows(providerMeta.file);
 
     const collection = new ConfigMapCollection([], Type);
     const attributes = new Attributes(Type);

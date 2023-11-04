@@ -7,7 +7,7 @@ import last from "lodash.last";
 export class ConfigMapCollection<T extends ConfigMapRecordContract> {
   private readonly keyToRecord: Map<string, T> = new Map<string, T>();
   private readonly records: T[] = [];
-  private key: string | null = null;
+  private key?: string | null = null;
   public slug?: string;
 
   constructor(records: T[], Type: Initializable<T>) {
@@ -19,13 +19,11 @@ export class ConfigMapCollection<T extends ConfigMapRecordContract> {
 
     this.slug = getProviderMeta(new Type())?.slug;
 
-    if (key) {
-      this.key = key;
+    this.key = key;
 
-      records.forEach((record) => {
-        this.add(record);
-      });
-    }
+    records.forEach((record) => {
+      this.add(record);
+    });
   }
 
   public at(index: number): T | undefined {
