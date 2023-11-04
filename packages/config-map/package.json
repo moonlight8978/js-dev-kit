@@ -1,6 +1,6 @@
 {
   "name": "@munkit/config-map",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -14,11 +14,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@munkit/types": "workspace:*",
     "lodash.first": "^3.0.0",
     "lodash.last": "^3.0.0"
   },
   "devDependencies": {
-    "@munkit/types": "workspace:*",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/jest": "^29.5.7",

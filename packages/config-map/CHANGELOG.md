@@ -1,5 +1,11 @@
 # @munkit/config-map
 
+## 0.4.0
+
+### Minor Changes
+
+- Change @munkit/types to dependencies
+
 ## 0.3.0
 
 ### Minor Changes
