@@ -8,6 +8,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "preversion": "npm run changeset",
+    "prepublish": "npm run build",
     "publish": "changeset publish"
   },
   "devDependencies": {

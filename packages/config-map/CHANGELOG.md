@@ -1,5 +1,17 @@
 # @munkit/config-map
 
+## 0.7.0
+
+### Minor Changes
+
+- feat: FlatSchema reader
+
+## 0.6.0
+
+### Minor Changes
+
+- feat: FlatSchema reader
+
 ## 0.5.0
 
 ### Minor Changes
