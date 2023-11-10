@@ -4,10 +4,15 @@ import { Initializable } from "@munkit/types";
 
 export const providerMetadataKey = Symbol("config-map:csv-provider");
 
-export type ProviderOptions = { slug: string } & {
-  src: "csv";
-  file: string;
-};
+export type ProviderOptions = { slug: string } & (
+  | {
+      src: "csv";
+      file: string;
+    }
+  | {
+      src: "flat-schema";
+    }
+);
 
 export function provider(options: ProviderOptions): ClassDecorator {
   return (target) => {
@@ -25,8 +30,16 @@ export function getProviderMeta<T extends ConfigMapRecordContract>(
 
 export const schemaMetadataKey = Symbol("config-map:schema");
 
-export function schema<T extends Schema>(schema: T) {
-  return Reflect.metadata(schemaMetadataKey, schema);
+export function schema<T extends Schema>(schema: T): PropertyDecorator {
+  return (target, propertyName) => {
+    setAttribute(target as ConfigMapRecordContract, propertyName as string);
+    Reflect.defineMetadata(
+      schemaMetadataKey,
+      schema,
+      target.constructor.prototype,
+      propertyName
+    );
+  };
 }
 
 export const attributesMetadataKey = Symbol("config-map:attributes");
@@ -69,7 +82,6 @@ export const columnMetadataKey = Symbol("config-map:column");
 
 export function column(header?: string): PropertyDecorator {
   return (target, propertyName) => {
-    setAttribute(target as ConfigMapRecordContract, propertyName as string);
     Reflect.defineMetadata(
       columnMetadataKey,
       header ?? propertyName,
