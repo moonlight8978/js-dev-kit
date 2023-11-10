@@ -1,4 +1,10 @@
-import { ConfigMapRecord, FlatSchema, key, provider, schema } from "../src";
+import {
+  ConfigMapRecord,
+  FlatSchemaConfigMap,
+  key,
+  provider,
+  schema,
+} from "../src";
 import { mixed } from "yup";
 
 @provider({
@@ -16,7 +22,7 @@ class BuildInfo extends ConfigMapRecord {
 
 describe("csv config map", () => {
   test("read config map", async () => {
-    const flatSchema = new FlatSchema();
+    const flatSchema = new FlatSchemaConfigMap();
     const buildInfoConfigMap = await flatSchema.read(BuildInfo);
     const buildInfo = buildInfoConfigMap.sole();
 

@@ -1,5 +1,11 @@
 # @munkit/config-map
 
+## 0.8.0
+
+### Minor Changes
+
+- fix: Remove cast from json config map, rename flat schema
+
 ## 0.7.0
 
 ### Minor Changes

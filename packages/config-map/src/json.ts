@@ -6,9 +6,7 @@ import {
   collectionMetadataKey,
   getAttributes,
   providerMetadataKey,
-  schemaMetadataKey,
 } from "./symbols";
-import { Schema, mixed } from "yup";
 
 class Attributes<T extends ConfigMapRecordContract> {
   private propertyNameToCollectionAttributes: Map<
@@ -40,20 +38,10 @@ class Attributes<T extends ConfigMapRecordContract> {
         return;
       }
 
-      const schema =
-        (Reflect.getMetadata(
-          schemaMetadataKey,
-          instance,
-          propertyName
-        ) as Schema) ?? mixed();
-
-      if (schema) {
-        this.propertyNameToEval.set(propertyName, {
-          parse: (row: Record<string, any>) => schema.cast(row[propertyName]),
-          getRaw: (row: Record<string, any>) => row[propertyName],
-        });
-        return;
-      }
+      this.propertyNameToEval.set(propertyName, {
+        parse: (row: Record<string, any>) => row[propertyName],
+        getRaw: (row: Record<string, any>) => row[propertyName],
+      });
     });
   }
 

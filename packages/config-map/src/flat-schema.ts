@@ -9,7 +9,7 @@ import {
 } from "./symbols";
 import { Schema, mixed } from "yup";
 
-export class FlatSchema {
+export class FlatSchemaConfigMap {
   public async read<T extends ConfigMapRecordContract>(
     Type: Initializable<T>
   ): Promise<ConfigMapCollection<T>> {
