@@ -1,4 +1,4 @@
-import { Schema } from "yup";
+import { Schema, mixed } from "yup";
 import { ConfigMapRecordContract } from "./record";
 import { Initializable } from "@munkit/types";
 
@@ -30,16 +30,33 @@ export function getProviderMeta<T extends ConfigMapRecordContract>(
 
 export const schemaMetadataKey = Symbol("config-map:schema");
 
-export function schema<T extends Schema>(schema: T): PropertyDecorator {
+export function schema<T extends Schema>(schema: T): PropertyDecorator;
+export function schema<T extends Schema>(
+  makeSchema: () => T
+): PropertyDecorator;
+
+export function schema(schemaOrMakeSchema: any): PropertyDecorator {
   return (target, propertyName) => {
     setAttribute(target as ConfigMapRecordContract, propertyName as string);
     Reflect.defineMetadata(
       schemaMetadataKey,
-      schema,
+      schemaOrMakeSchema,
       target.constructor.prototype,
       propertyName
     );
   };
+}
+
+export function getSchema<T extends Object>(
+  instance: T,
+  propertyName: string
+): Schema {
+  const schemaOrMakeSchema =
+    Reflect.getMetadata(schemaMetadataKey, instance, propertyName) ?? mixed();
+
+  return typeof schemaOrMakeSchema == "function"
+    ? schemaOrMakeSchema()
+    : schemaOrMakeSchema;
 }
 
 export const attributesMetadataKey = Symbol("config-map:attributes");

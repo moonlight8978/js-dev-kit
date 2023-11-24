@@ -1,4 +1,3 @@
-import { Schema, mixed } from "yup";
 import { ConfigMapCollection } from "./collection";
 import {
   ProviderOptions,
@@ -6,7 +5,7 @@ import {
   columnMetadataKey,
   getAttributes,
   providerMetadataKey,
-  schemaMetadataKey,
+  getSchema,
 } from "./symbols";
 import { ConfigMapRecordContract } from "./record";
 import { Initializable } from "@munkit/types";
@@ -46,12 +45,7 @@ class Attributes<T extends ConfigMapRecordContract> {
         instance,
         propertyName
       );
-      const schema =
-        (Reflect.getMetadata(
-          schemaMetadataKey,
-          instance,
-          propertyName
-        ) as Schema) ?? mixed();
+      const schema = getSchema(instance, propertyName);
 
       if (header) {
         this.propertyNameToEval.set(propertyName, {

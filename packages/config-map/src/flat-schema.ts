@@ -5,9 +5,8 @@ import {
   ProviderOptions,
   getAttributes,
   providerMetadataKey,
-  schemaMetadataKey,
+  getSchema,
 } from "./symbols";
-import { Schema, mixed } from "yup";
 
 export class FlatSchemaConfigMap {
   public async read<T extends ConfigMapRecordContract>(
@@ -27,15 +26,7 @@ export class FlatSchemaConfigMap {
     }
 
     getAttributes(Type).forEach((propertyName) => {
-      const schema =
-        (Reflect.getMetadata(
-          schemaMetadataKey,
-          instance,
-          propertyName
-        ) as Schema) ?? mixed();
-
-      console.log("propertyName", propertyName, schema, schema.cast(""));
-
+      const schema = getSchema(instance, propertyName);
       instance.setAttribute(propertyName, schema.cast(""));
     });
 

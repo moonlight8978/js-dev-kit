@@ -31,7 +31,9 @@ export class Parent extends ConfigMapRecord {
   public name: string = null!;
 
   @column("ParentRelationship")
-  @schema(string().required().trim())
+  @schema(() => {
+    return string().required().trim();
+  })
   @key()
   public relationship: string = null!;
 

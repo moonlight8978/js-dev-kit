@@ -1,5 +1,11 @@
 # @munkit/config-map
 
+## 0.9.0
+
+### Minor Changes
+
+- feat: Support function schema
+
 ## 0.8.0
 
 ### Minor Changes
